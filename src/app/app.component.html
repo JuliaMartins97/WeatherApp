@@ -1,3 +1,9 @@
+<div class="search">
+    <form #form = "ngForm" (submit)="onSubmit()">
+        <input type="text" placeholder="Search city" name="city" [(ngModel)]="cityName"> 
+    </form>
+</div>
+
 <!-- if there's a weatherData shows the first container -->
 <div class="container" *ngIf="weatherData"> 
     <div class="upper-data">
@@ -88,8 +94,8 @@
         <img src="../assets/cloudy.jpg" *ngIf="14 <= 15">
    
         <div class="weather-data">
-            <div class="location">Alagoas</div>
-            <div class="temperature">{{ 28.40 | number: '1.0-0'}}°C</div>
+            <div class="location">Toronto</div>
+            <div class="temperature">{{ 1 | number: '1.0-0'}}°C</div>
         </div>
     </div>
 
@@ -107,7 +113,7 @@
                 </div>
                 <div class="info-block-value">
                     <!-- {{weatherData.sys.country}} -->
-                    BR
+                    CA
                 </div>
             </div>
 
@@ -117,7 +123,7 @@
                     <span>feels like</span>
                 </div>
                 <div class="info-block-value">
-                    31°C
+                    -5°C
                     <!-- {{weatherData.main.feels_like | number: '1.0-0'}}°C -->
                 </div>
             </div>
@@ -128,7 +134,7 @@
                     <span>min</span>
                 </div>
                 <div class="info-block-value">
-                    22°C
+                    -3°C
                 </div>
             </div>
 
@@ -138,7 +144,7 @@
                     <span>max</span>
                 </div>
                 <div class="info-block-value">
-                    35°C
+                    2°C
                 </div>
             </div>
 
@@ -148,7 +154,7 @@
                     <span>humidity</span>
                 </div>
                 <div class="info-block-value">
-                    87%
+                    81%
                 </div>
             </div>
 
@@ -158,7 +164,7 @@
                     <span>wind</span>
                 </div>
                 <div class="info-block-value">
-                    11 km/h
+                    18 km/h
                 </div>
             </div>
 
