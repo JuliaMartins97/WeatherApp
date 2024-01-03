@@ -1,11 +1,12 @@
-<div class="container">
+<!-- if there's a weatherData shows the first container -->
+<div class="container" *ngIf="weatherData"> 
     <div class="upper-data">
-        <img src="../assets/hot.jpg"  *ngIf="14 > 15">
-        <img src="../assets/cloudy.jpg" *ngIf="14 <= 15">
+        <img src="../assets/hot.jpg"  *ngIf="weatherData.main.temp > 15">
+        <img src="../assets/cloudy.jpg" *ngIf="weatherData.main.temp <= 15">
    
         <div class="weather-data">
-            <div class="location">Wellington</div>
-            <div class="temperature">{{ 14.40 | number: '1.0-0'}}°C</div>
+            <div class="location">{{ weatherData.name }}</div>
+            <div class="temperature">{{ weatherData.main.temp  | number: '1.0-0'}}°C</div>
         </div>
     </div>
 
@@ -18,11 +19,31 @@
 
             <div class="info-block">
                 <div class="info-block-label">
+                    <img src="../assets/country.png">
+                    <span>country</span>
+                </div>
+                <div class="info-block-value">
+                    {{weatherData.sys.country}}
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/feelslike.png">
+                    <span>feels like</span>
+                </div>
+                <div class="info-block-value">
+                    {{weatherData.main.feels_like | number: '1.0-0'}}°C
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
                     <img src="../assets/min.png">
                     <span>min</span>
                 </div>
                 <div class="info-block-value">
-                    10°C
+                    {{weatherData.main.temp_min | number: '1.0-0'}}°C
                 </div>
             </div>
 
@@ -32,7 +53,7 @@
                     <span>max</span>
                 </div>
                 <div class="info-block-value">
-                    20°C
+                    {{weatherData.main.temp_max | number: '1.0-0'}}°C
                 </div>
             </div>
 
@@ -42,7 +63,92 @@
                     <span>humidity</span>
                 </div>
                 <div class="info-block-value">
-                    77%
+                    {{ weatherData.main.humidity}}%
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/wind.png">
+                    <span>wind</span>
+                </div>
+                <div class="info-block-value">
+                    {{ weatherData.wind.speed}}km/h
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Static Files-->
+<div class="container">
+    <div class="upper-data">
+        <img src="../assets/hot.jpg"  *ngIf="14 > 15">
+        <img src="../assets/cloudy.jpg" *ngIf="14 <= 15">
+   
+        <div class="weather-data">
+            <div class="location">Alagoas</div>
+            <div class="temperature">{{ 28.40 | number: '1.0-0'}}°C</div>
+        </div>
+    </div>
+
+    <div class="lower-data">
+        <div class="more-info-label">
+            More Information
+        </div>
+
+        <div class="more-info-container">
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/country.png">
+                    <span>country</span>
+                </div>
+                <div class="info-block-value">
+                    <!-- {{weatherData.sys.country}} -->
+                    BR
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/feelslike.png">
+                    <span>feels like</span>
+                </div>
+                <div class="info-block-value">
+                    31°C
+                    <!-- {{weatherData.main.feels_like | number: '1.0-0'}}°C -->
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/min.png">
+                    <span>min</span>
+                </div>
+                <div class="info-block-value">
+                    22°C
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/max.png">
+                    <span>max</span>
+                </div>
+                <div class="info-block-value">
+                    35°C
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-block-label">
+                    <img src="../assets/humidity.png">
+                    <span>humidity</span>
+                </div>
+                <div class="info-block-value">
+                    87%
                 </div>
             </div>
 
@@ -58,6 +164,6 @@
 
         </div>
     </div>
-</div>
+</div> 
 
 <router-outlet></router-outlet>

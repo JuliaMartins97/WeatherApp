@@ -19,7 +19,7 @@ export class WeatherService {
       params: new HttpParams()
       .set('q', cityName)
       .set('units', 'metric')
-      .set('mode', 'json') //talvez tirar esse mode
+      .set('mode', 'json') 
     })
   }
 }
